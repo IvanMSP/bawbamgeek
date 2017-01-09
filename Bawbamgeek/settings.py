@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main',
+    'social.apps.django_app.default',
 ]
 
 MIDDLEWARE = [
@@ -63,6 +64,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social.apps.django_app.context_processors.backends',
+                'social.apps.django_app.context_processors.login_redirect',
             ],
         },
     },
@@ -129,3 +132,14 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 #STATIC_ROOT = 'staticfiles'
 #STATICFILES_DIRS = (os.path.join(BASE_DIR,'static'),)
 #STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+AUTHENTICATION_BACKENDS = (
+    'social.backends.facebook.Facebook2OAuth2',
+)
+
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/'
+SOCIAL_AUTH_FACEBOOK_KEY = '173219003158117'
+SOCIAL_AUTH_FACEBOOK_SECRET = '53d0ba52432c7bdc0b959ffaeaf3a11b'
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
+    'fields': 'id, email', 
+}

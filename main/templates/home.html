@@ -3,5 +3,14 @@
 {%block head%}
 {%endblock head%}
 {% block content%}
-
+	<div class="social" style="padding: : 200px;">
+	<ul>
+		Welcome : {{ user.get_full_name }}.
+		<br>
+		id: {{user.id}}
+		<br>
+		email: {{user.email}}
+		<li class="facebook"><a href="{% url "social:begin" "facebook"%}">Inicia con Facebook</a></li>
+	</ul>
+	</div>
 {%endblock content%}

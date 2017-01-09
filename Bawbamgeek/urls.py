@@ -8,6 +8,7 @@ from main import urls as UrlsMain
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^',include(UrlsMain,namespace="home")),
+    url('social-auth/',include('social.apps.django_app.urls', namespace='social')),
     url(
     	regex=r'^media/(?P<path>.*)$',
     	view=serve,
